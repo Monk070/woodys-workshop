@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woody's Workshop | MakeCode Arcade Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA552 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 4px 4px 0 #1a1a1a, 5px 5px 0 rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #1a1a1a;
+        }
+
+        .tools-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .tool-info {
+            flex: 1;
+        }
+
+        .tool-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .tool-desc {
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .tool-badge {
+            background: #FF6B35;
+            color: white;
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .tool-badge.extension {
+            background: #1a1a1a;
+        }
+
+        .tool-links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .youtube-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #FF0000;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .youtube-link:hover {
+            transform: scale(1.1);
+        }
+
+        .youtube-link svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .arrow {
+            font-size: 1.5rem;
+            color: #FF6B35;
+            transition: transform 0.2s ease;
+        }
+
+        .tool-card:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tool-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .tool-links {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Woody's Workshop</h1>
+            <p class="subtitle">Tools & Extensions for MakeCode Arcade</p>
+        </header>
+
+        <main>
+            <h2 class="section-title">Tools</h2>
+            <div class="tools-grid">
+                <a href="https://monk070.github.io/makecode-video-audio-converter/" class="tool-card" target="_blank">
+                    <div class="tool-info">
+                        <div class="tool-name">Video + Audio Converter</div>
+                        <p class="tool-desc">Convert videos and audio files for use in MakeCode Arcade</p>
+                    </div>
+                    <div class="tool-links">
+                        <span class="tool-badge">Tool</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <a href="https://monk070.github.io/midi-to-makecode/" class="tool-card" target="_blank">
+                    <div class="tool-info">
+                        <div class="tool-name">MIDI to MakeCode</div>
+                        <p class="tool-desc">Transform MIDI files into MakeCode Arcade songs</p>
+                    </div>
+                    <div class="tool-links">
+                        <span class="tool-badge">Tool</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+
+                <div class="tool-card" style="cursor: default;">
+                    <div class="tool-info">
+                        <div class="tool-name">Sprite Sheet Converter</div>
+                        <p class="tool-desc">Import sprite sheets and export for MakeCode Arcade</p>
+                    </div>
+                    <div class="tool-links">
+                        <a href="https://youtu.be/U2HaK1kbcC0?si=OLgSdun5BTle30ZK" class="youtube-link" target="_blank" title="Watch Tutorial">
+                            <svg viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.7 1.1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.7-1.1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+                        </a>
+                        <a href="https://monk070.github.io/makecode-spritesheet-converter/" target="_blank" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                            <span class="tool-badge">Tool</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Extensions</h2>
+            <div class="tools-grid">
+                <a href="https://github.com/Monk070/makecode-sam-speech" class="tool-card" target="_blank">
+                    <div class="tool-info">
+                        <div class="tool-name">SAM Text-To-Speech</div>
+                        <p class="tool-desc">Add retro speech synthesis to your Arcade games</p>
+                    </div>
+                    <div class="tool-links">
+                        <span class="tool-badge extension">Extension</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@woodysworkshop4483" class="social-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.5.6c-1 .3-1.7 1.1-2 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1 1.8 2 2.1 1.9.6 9.5.6 9.5.6s7.6 0 9.5-.6c1-.3 1.7-1.1 2-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+                    YouTube
+                </a>
+                <a href="https://github.com/Monk070" class="social-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="#1a1a1a"><path d="M12 0C5.4 0 0 5.4 0 12c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6C20.6 21.8 24 17.3 24 12c0-6.6-5.4-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+            <p class="footer-text">Made with 🧡 for the MakeCode Arcade community</p>
+        </footer>
+    </div>
+</body>
+</html>
